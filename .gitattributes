@@ -1,0 +1,4 @@
+saved_models/finalized_lr_model.sav filter=lfs diff=lfs merge=lfs -text
+saved_models/finalized_svc_model.sav filter=lfs diff=lfs merge=lfs -text
+saved_models/gridsearchmodel.sav filter=lfs diff=lfs merge=lfs -text
+saved_models/improvedsvc.sav filter=lfs diff=lfs merge=lfs -text
