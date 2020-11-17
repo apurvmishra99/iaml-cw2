@@ -52,7 +52,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % --------------------------------------------------------
 % IMPORTANT: Specify your Student ID below. You will need to uncomment the line, else compilation will fail. Make sure to specify your student ID correctly, otherwise we may not be able to identify your work and you will be marked as missing.
-%\newcommand{\assignmentAuthorName}{s1234567}
+\newcommand{\assignmentAuthorName}{s1864480}
 %--------------------------------------------------------
 
 
@@ -89,7 +89,8 @@
     
 
       \begin{answerbox}{10em}
-         Your Answer Here
+         The first 4 elements of the first and the last training sample are:
+         $$[-0.    , -0.    , -0.0001, -0.0004]$$
       \end{answerbox}
   
 
@@ -110,7 +111,9 @@
 
 
   \begin{answerbox}{52em}
-    Your Answer Here
+    \begin{center}
+        \includegraphics[width=0.65\textwidth]{results/1_2.png}
+    \end{center}
   \end{answerbox}
 
 
@@ -121,14 +124,25 @@
    % Q1.3
    \begin{subquestion}{(3 points)
        Apply Principal Component Analysis (PCA) to the data of {\tt
-         Xtrn\_nm} using \href{https://scikit-learn.org/0.19/modules/generated/sklearn.decomposition.PCA.html}{sklearn.decomposition.PCA}, and
-       find the cumulative explained variance.
-     } \label{Q1.pca.variance}
-
+         Xtrn\_nm} using
+       \href{https://scikit-learn.org/0.19/modules/generated/sklearn.decomposition.PCA.html}{sklearn.decomposition.PCA},
+       and report the variances of projected data for the first five principal
+       components in a table. Note that you should use {\tt Xtrn\_nm} instead of {\tt Xtrn}.} 
+    \label{Q1.pca.variance}
+     
 
 
     \begin{answerbox}{15em}
-      Your Answer Here
+        \centering
+        \begin{tabular}{|c|l|}
+            \hline
+            \multicolumn{1}{|l|}{\textbf{Principal Component (PC)}} & \textbf{Variance} \\ \hline
+            PC1                                            & 19.8098  \\ \hline
+            PC2                                            & 12.1122  \\ \hline
+            PC3                                            & 4.1062   \\ \hline
+            PC4                                            & 3.3818   \\ \hline
+            PC5                                            & 2.624    \\ \hline
+        \end{tabular}
     \end{answerbox}
     
 
@@ -138,13 +152,18 @@
    %==============================
    % Q1.4
    \begin{subquestion}{(3 points)
-       Plot a graph of the cumulative explained variance ratio.
+       Plot a graph of the cumulative explained variance ratio as a
+       function of the number of principal components, $K$, where $1
+       \le K \le 784$.
        Discuss the result briefly.
-     } \label{Q1.plot.pca.variance}
+       } \label{Q1.plot.pca.variance}
    
 
       \begin{answerbox}{30em}
-         Your Answer Here
+        \begin{center}
+            \includegraphics[width=0.75\textwidth]{results/1_4.png}
+        \end{center}
+        This curve shows how much of the total, 784-dimensional variance is contained within the first $N$ components. Here we can see that in the dataset the first $100$ components contain approximately $90\%$ of the variance, while we need around $500$ components to describe close to $100\%$ of the variance. This allows us to work with and explore the dataset more easily, as we can project our $784$ to much smaller dimensions, for eg. $100$. 
       \end{answerbox}
   
 
@@ -162,7 +181,9 @@
    
 
       \begin{answerbox}{35em}
-         Your Answer Here
+         \begin{center}
+            \includegraphics[width=0.7\textwidth]{results/1_5.png}
+        \end{center}
       \end{answerbox}
   
 
@@ -184,7 +205,21 @@
      
 
       \begin{answerbox}{25em}
-         Your Answer Here
+         \centering
+        \begin{tabular}{|c|l|l|l|l|l|l|l|l|}
+            \hline
+            \textbf{Class} & \textbf{K} & \textbf{RSME} & \textbf{K} & \textbf{RSME} & \textbf{K} & \textbf{RSME} & \textbf{K} & \textbf{RSME}   \\ \hline
+            0     & 5 & 0.2561 & 20 & 0.1501 & 50 & 0.127 & 200 & 0.0619 \\ \hline
+            1     & 5 & 0.198 & 20 & 0.1404 & 50 & 0.0952 & 200 & 0.0361 \\ \hline
+            2     & 5 & 0.1987 & 20 & 0.1455 & 50 & 0.1224 & 200 & 0.0798 \\ \hline
+            3     & 5 & 0.1457 & 20 & 0.1075 & 50 & 0.0838 & 200 & 0.0561 \\ \hline
+            4     & 5 & 0.1182 & 20 & 0.1026 & 50 & 0.087 & 200 & 0.0466 \\ \hline
+            5     & 5 & 0.1811 & 20 & 0.1586 & 50 & 0.1431 & 200 & 0.0898 \\ \hline
+            6     & 5 & 0.1295 & 20 & 0.0963 & 50 & 0.0725 & 200 & 0.0446 \\ \hline
+            7     & 5 & 0.1656 & 20 & 0.1272 & 50 & 0.1059 & 200 & 0.0614 \\ \hline
+            8     & 5 & 0.2234 & 20 & 0.1449 & 50 & 0.1233 & 200 & 0.093 \\ \hline
+            9     & 5 & 0.1835 & 20 & 0.1513 & 50 & 0.1218 & 200 & 0.0716 \\ \hline
+        \end{tabular}
       \end{answerbox}
   
 
@@ -203,7 +238,9 @@
    
 
       \begin{answerbox}{52em}
-         Your Answer Here
+         \begin{center}
+             \includegraphics[scale=0.75]{results/1_7.png}
+         \end{center}
       \end{answerbox}
   
 
@@ -224,7 +261,9 @@
    
 
       \begin{answerbox}{40em}
-         Your Answer Here
+         \begin{center}
+             \includegraphics[width=0.9\textwidth]{results/1_8.png}
+         \end{center}
       \end{answerbox}
   
 
