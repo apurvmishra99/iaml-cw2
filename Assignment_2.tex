@@ -112,8 +112,9 @@
 
   \begin{answerbox}{52em}
     \begin{center}
-        \includegraphics[width=0.65\textwidth]{results/1_2.png}
+        \includegraphics[width=0.75\textwidth, height=39em]{results/1_2.png}
     \end{center}
+    The mean image of each data class shows us the shape and general outline/boundary of all the images in it. We can visually see the significantly large differences between the closest and furthest images to the mean. The closest images retain the shape and outline of their corresponding mean class which was expected as they are the nearest samples to it. In these samples the "dark" and "light" areas match the mean images "dark" and "light" areas. Whereas when we look at the furthest samples we can clearly see that they have a different boundary/outline, general shape, and big and sometimes significant differences in their "dark"/"light" areas. 
   \end{answerbox}
 
 
@@ -161,9 +162,9 @@
 
       \begin{answerbox}{30em}
         \begin{center}
-            \includegraphics[width=0.75\textwidth]{results/1_4.png}
+            \includegraphics[width=0.72\textwidth]{results/1_4.png}
         \end{center}
-        This curve shows how much of the total, 784-dimensional variance is contained within the first $N$ components. Here we can see that in the dataset the first $100$ components contain approximately $90\%$ of the variance, while we need around $500$ components to describe close to $100\%$ of the variance. This allows us to work with and explore the dataset more easily, as we can project our $784$ to much smaller dimensions, for eg. $100$. 
+        This curve shows how much of the total, 784-dimensional variance is contained within the first $N$ components. The curve is extremely steep in the beginning and quickly plateaus. Here we can see that approximately first $20$ components contain $80\%$ of the variance, the first $100$ components contain approximately $90\%$ of the variance, and we would need around $500$ components to describe close to $100\%$ of the variance. This knowledge allows us to work with and explore the dataset more easily, as we can project our $784$ to much smaller dimensions, for eg. $100$ without losing much information. 
       \end{answerbox}
   
 
@@ -182,9 +183,10 @@
 
       \begin{answerbox}{35em}
          \begin{center}
-            \includegraphics[width=0.7\textwidth]{results/1_5.png}
+            \includegraphics[width=0.9\textwidth]{results/1_5.png}
         \end{center}
-      \end{answerbox}
+        As seen in the previous question, the principal components upto $20$ express most of the variance in the dataset which is necessary to capture the features/characteristics of the dataset and differentiate between classes. It has been discussed in the lectures, that really dark and light/bright areas in the plot correspond to the dominating factors with which we differentiate classes. The gray and dull areas don't affect the differentiation a lot. In this plot we can see most of the subplots have clear images of some upper-body wear like shirts, t-shirts, coats, pullovers or footwear like sneakers, sneakers and boots. This is again something we would expect, as considering the classes of the dataset ($\frac{4}{10}$ upper-body wear, $\frac{3}{10}$ are footwear) these are the shapes/patterns which contain most of the variance. In some of the subplots we can vaguely see the outline of other classes like dresses as well.
+    \end{answerbox}
   
 
 
@@ -239,8 +241,9 @@
 
       \begin{answerbox}{52em}
          \begin{center}
-             \includegraphics[scale=0.75]{results/1_7.png}
+             \includegraphics[width=0.75\textwidth, height=37em]{results/1_7.png}
          \end{center}
+         We can see in the plot that more the number of principal components, more is the clarity and definition of the image. On the other hand we can also observe that even when using low values of $K$ like $5$ or $20$, we are still able to capture many of the characteristics. This is logical as we have seen in previous questions as how by increasing the number of components we can capture a lot more variance in the data but the first few components alone can explain most of the variance in the dataset. From the previous question we can also say that the RSME value decreases as the number of component increases and we can see how our images are more sharper and truer to their class.
       \end{answerbox}
   
 
@@ -262,8 +265,9 @@
 
       \begin{answerbox}{40em}
          \begin{center}
-             \includegraphics[width=0.9\textwidth]{results/1_8.png}
+             \includegraphics[width=0.75\textwidth]{results/1_8.png}
          \end{center}
+         The data is quite clearly not linearly separable, but from this scatter plot of the projection of training samples see can see that most samples of each class are clustered together. We can also clearly identify a few more characteristic of the plot; similar classes are clustered near each other, i.e. upper body wear is scattered downwards while footwear classes are projected upwards of the graph.
       \end{answerbox}
   
 
