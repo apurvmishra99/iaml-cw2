@@ -91,6 +91,8 @@
       \begin{answerbox}{10em}
          The first 4 elements of the first and the last training sample are:
          $$[-0.    , -0.    , -0.0001, -0.0004]$$
+         \newline
+         \textit{Note: Values of the elements are rounded to 4 decimal places.}
       \end{answerbox}
   
 
@@ -399,8 +401,9 @@
 
       \begin{answerbox}{35em}
          \begin{center}
-             \includegraphics[width=\textwidth]{results/2_3.png}
+             \includegraphics[width=0.9\textwidth]{results/2_3.png}
          \end{center}
+         Logistic regression combines linear weights and a logistic squashing function. Being a linear classifier we expect the decision boundary to be a line and we can see that in the plot. We can see that how some classes are densely clustered together like we saw in the 2D-PCA plot. One major thing we can see is that there only 9 decision boundary regions in the plot. The missing decision region probably comes from the fact that a logistic classifier does not work very well with non-linear and unstructured/semi-structured data. It is not able to separate out the missing region from other classes.
       \end{answerbox}
   
 
@@ -423,7 +426,7 @@
          \begin{center}
                \includegraphics[width=0.9\textwidth]{results/2_4.png}
          \end{center}
-         TODO
+         SVM classifiers try to find the "maximum" or the "best" margin between to classes to separate them. The "kernel trick" allows the SVM classifers to efficiently draw boundaries for non-linearly separable classes, and our decision boundaries are no longer only straight lines. Comparing this plot to our plot in \refQ{Q2.2} we can see that here decision regions for all classes are present and we have stronger correlation between decision boundaries and the 2D-PCA plot in \refQ{Q1.8}. 
       \end{answerbox}
   
 
@@ -483,6 +486,8 @@
             \bottomrule
          \end{tabular}
         \end{center}
+        \textbf{Best C: }
+            $$21.5443$$
       \end{answerbox}
   
 
@@ -528,7 +533,7 @@
         Sum of squared distances of samples to their closest cluster centre = $38185.817$
          \begin{center}
             \begin{tabular}{|c|c|}
-                \toprule
+                \hline
                 Cluster & Num of Samples \\ \hline
                 0 & 1018 \\
                 1 & 1125 \\
@@ -552,7 +557,7 @@
                 19 & 930 \\
                 20 & 1065 \\
                 21 & 1466 \\
-                \bottomrule
+                \hline
             \end{tabular}    
          \end{center}
          
@@ -579,8 +584,9 @@
 
       \begin{answerbox}{35em}
          \begin{center}
-             \includegraphics[width=\textwidth]{results/3_2.png}
+             \includegraphics[width=0.85\textwidth]{results/3_2.png}
          \end{center}
+         The cluster center is the mean of all the samples assigned to it. In the plot we can see many of the cluster centres are around their language means, except for the few outliers which are more spread out. In general, we can see that language means are more densely populated on the graph compared to the cluster centres. This could happen as KMeans algorithm picks k-random points to start the clustering and our clusters are affected by it. So yes we can say language clusters and language means are similar. 
       \end{answerbox}
   
 
@@ -601,8 +607,9 @@
 
       \begin{answerbox}{35em}
         \begin{center}
-            \includegraphics[width=0.6\textwidth]{results/3_3.png}
+            \includegraphics[width=0.6\textwidth, height=21em]{results/3_3.png}
         \end{center}
+        In this plot we a have dendrogram which visualizes the hierarchical clustering of data points using the Ward linkage method. Ward's method uses analysis of the variance in the data to calculate the distances between clusters/points. Lesser the distance the more similar we assume the data points to be. We can use these distances to find out the ideal number of cluster we will have. In this plot if consider the languages the number labels represent we can see a clear grouping of European latin derived languages together (14, 1, 10, 8, 5). This could be one of our clusters. However we some obvious errors as well, for eg. English and Mongolian (4, 13) being grouped together even though they have completely different roots.
       \end{answerbox}
   
 
@@ -623,11 +630,15 @@
 
       \begin{answerbox}{50em}
          \begin{center}
-            \includegraphics[width=0.81\textwidth, height=16em]{results/3_4_complete.png}\vfill
-            \includegraphics[width=0.81\textwidth, height=16em]{results/3_4_single.png}\vfill
-            \includegraphics[width=0.81\textwidth, height=16em]{results/3_4_ward.png}
-
+            \includegraphics[width=0.48\textwidth, height=16em]{results/3_4_complete.png}\hfill
+            \includegraphics[width=0.48\textwidth, height=16em]{results/3_4_single.png}\hfill
+            \includegraphics[width=0.5\textwidth, height=16em]{results/3_4_ward.png}
          \end{center}
+         \begin{itemize}
+             \item Single-linkage (nearest neighbor) is the shortest distance between a pair of observations in two clusters. Dendrogram of single-linkage tends to form long chains and can appear to be spread out. We can observe this in the red-coloured cluster of our plot.
+             \item Complete-linkage (farthest neighbour) is where distance is measured between the farthest pair of observations in two clusters. A larger number of clusters are produced compared to single-linkage but these are much more closer to each other.
+             \item Ward-linkage minimizes the total within-cluster variance. At each step the pair of clusters with minimum between-cluster distance are merged. This leads to more dense clusters. 
+         \end{itemize}
       \end{answerbox}
   
 
@@ -648,10 +659,26 @@
 
 
       \begin{answerbox}{30em}
+        \begin{center}
+            \begin{tabular}{l|c|c|c|c|}
+                \cline{2-5}
+                 & \multicolumn{2}{c|}{\textbf{Diagonal Covaraince}} & \multicolumn{2}{c|}{\textbf{Full Covariance}} \\ \hline
+                \multicolumn{1}{|l|}{\textbf{K}} & \textbf{Train}           & \textbf{Test}          & \textbf{Train}         & \textbf{Test}        \\ \hline
+                \multicolumn{1}{|l|}{1}  & 14.280 & 13.843 & 16.394 & 15.811 \\ \hline
+                \multicolumn{1}{|l|}{3}  & 15.398 & 15.041 & 18.096 & 17.066 \\ \hline
+                \multicolumn{1}{|l|}{5}  & 16.010 & 15.909 & 19.036 & 16.489 \\ \hline
+                \multicolumn{1}{|l|}{10} & 16.917 & 16.568 & 21.062 & 14.622 \\ \hline
+                \multicolumn{1}{|l|}{15} & 17.505 & 16.902 & 22.786 & 11.848 \\ \hline
+            \end{tabular}
+        \end{center}
          \begin{center}
-             \includegraphics[width=\textwidth]{results/3_5.png}
+             \includegraphics[width=0.6\textwidth, height=10em]{results/3_5.png}
          \end{center}
-      \end{answerbox}
+         \begin{itemize}
+             \item On the training data, the score is proportional to the number of mixtures in the GMM for both matrices.
+             \item On test data, the score is proportional to the number of mixtures in the GMM for the diagonal covariance matrix and inversely proportional (after a few mixtures) for the full covariance matrix.
+         \end{itemize}
+    \end{answerbox}
   
 
 
